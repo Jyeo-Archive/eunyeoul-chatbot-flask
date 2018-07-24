@@ -43,7 +43,10 @@ def mealparse(days):
                 '은여울중학교 급식 정보야!\n\n' + data
             )
     except: 
-        return '에러가 발생했습니다.' # if error occured
+        return (
+            date + '(' + ['월', '화', '수', '목', '금', '토', '일'][day-1] + ')\n'
+            '급식 데이터를 가져올 수 없습니다.' # empty lists
+        )
 
 if __name__ == '__main__':
     print(str(datetime.datetime.today().strftime('%Y.%m.%d')))

@@ -25,7 +25,7 @@ def weatherparse():
     if '구름' in weather: weather = 'cloud'
     elif '비' in weather: weather = 'rain'
     else: weather = ['sun', 'mist', 'snow'][['맑음', '흐림', '눈'].index(weather)]
-    return [result, weather + '.jpg']
+    return { 'text' : result, 'img' : weather + '.jpg' }
 
 if __name__ == '__main__': 
     print(weatherparse()) # function test
