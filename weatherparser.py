@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 def weatherparse():
     html = requests.get('http://www.weather.go.kr/wid/queryDFSRSS.jsp?zone=4157057000').text 
     # 경기도 김포시 구래동 기준
-    weather_data = BeautifulSoup(html, 'html.parser').find_all('data')[0] # recent weather data
+    weather_data = BeautifulSoup(html, 'html.parser').find('data') # recent weather data
     highest = weather_data.tmx.string
     highest = '데이터 없음' if highest == -999 else highest
     lowest = weather_data.tmn.string
